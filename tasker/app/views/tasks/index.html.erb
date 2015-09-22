@@ -1,0 +1,16 @@
+<h1>Task Index Page</h1>
+
+<ul>
+	<% @tasks.each do |task| %>
+		<li><%= task.name %></li>
+	<% end %>
+</ul>
+
+
+<%= form_for :task, url: tasks_path do |f| %>
+Task name: <%= f.text_field :name %>
+Deadline: <%= f.date_field :completion_date %>
+Status: <%= f.text_field :status %>
+
+<%= f.submit "Submit" %>
+<% end %>

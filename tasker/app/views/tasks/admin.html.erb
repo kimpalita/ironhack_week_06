@@ -1,0 +1,14 @@
+<h1>ADMIN PAGE: for admins only</h1>
+
+<ul>
+	<% @users.each do |user| %>
+		<li><%= link_to 'See details', user_task_path(user.id) %>
+			<%= user.name %> - <%= user.role %>
+			<ul>
+				<% user.tasks.each do |task| %>
+					<li><%= task.name %></li>
+				<% end %>
+			</ul>
+		</li>
+	<% end %>
+</ul>

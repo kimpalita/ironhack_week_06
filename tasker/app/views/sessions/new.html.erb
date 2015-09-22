@@ -1,0 +1,11 @@
+<h1>Login</h1>
+
+<% if @email %>
+	<p>Login failed: wrong email or password.</p>
+<% end %>
+
+<%= form_tag login_path do %>
+	Email: <%= text_field_tag :email, @email %><br/>
+	Password: <%= password_field_tag :password %>
+	<%= submit_tag "Submit" %>
+<% end %>

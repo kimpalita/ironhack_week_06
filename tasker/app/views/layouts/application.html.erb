@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tasker</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<h1>Tasker</h1>
+<h2>Taskly's Cheeky Cousin</h2>
+<% if current_user.nil? %>
+<p>no current user</p>
+<%= link_to 'Login', login_path %>
+<%= link_to 'Signup', signup_path %>
+<% else %>
+<p>Hello, you are logged in as <%= current_user.name %>!</p>
+<%= link_to 'Logout', logout_path %>
+<% end %>
+
+<% flash.each do |name, message| %>
+ <p><%= message %></p>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
